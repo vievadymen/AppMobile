@@ -125,10 +125,10 @@ final class Versions
   'symfony/maker-bundle' => 'v1.29.1@313b5669a5370bf36cd34fa8f5b5bbbfa5fb8aa8',
   'symfony/process' => 'v5.2.3@313a38f09c77fbcdc1d223e57d368cea76a2fd2f',
   'symfony/web-server-bundle' => 'v4.4.19@8e159ee4eab964b67ae87b32a1cab2de153241d7',
-  'symfony/polyfill-ctype' => '*@',
-  'symfony/polyfill-iconv' => '*@',
-  'symfony/polyfill-php72' => '*@',
-  '__root__' => '1.0.0+no-version-set@',
+  'symfony/polyfill-ctype' => '*@3dca59ed9c002f6d0714c395fa9ecc65d3544227',
+  'symfony/polyfill-iconv' => '*@3dca59ed9c002f6d0714c395fa9ecc65d3544227',
+  'symfony/polyfill-php72' => '*@3dca59ed9c002f6d0714c395fa9ecc65d3544227',
+  '__root__' => 'dev-main@3dca59ed9c002f6d0714c395fa9ecc65d3544227',
 );
 
     private function __construct()

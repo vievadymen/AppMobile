@@ -165,6 +165,6 @@ class __TwigTemplate_ff93dcfcc9a9f3ae1a9fc787b2a6a26b73f2b3eb1ddf120f3bbaf5f3fb6
         {%- endfor -%}
     </pre>
 {% endif %}
-", "@Doctrine/Collector/explain.html.twig", "/home/vieva/AppMobile/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig");
+", "@Doctrine/Collector/explain.html.twig", "/home/vieva/AppMobile/backend/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig");
     }
 }

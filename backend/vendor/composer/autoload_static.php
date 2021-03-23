@@ -503,6 +503,10 @@ class ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/src',
+    );
+
     public static $classMap = array (
         'ApiPlatform\\Core\\Action\\EntrypointAction' => __DIR__ . '/..' . '/api-platform/core/src/Action/EntrypointAction.php',
         'ApiPlatform\\Core\\Action\\ExceptionAction' => __DIR__ . '/..' . '/api-platform/core/src/Action/ExceptionAction.php',
@@ -996,13 +1000,42 @@ class ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49
         'ApiPlatform\\Core\\Validator\\EventListener\\ValidateListener' => __DIR__ . '/..' . '/api-platform/core/src/Validator/EventListener/ValidateListener.php',
         'ApiPlatform\\Core\\Validator\\Exception\\ValidationException' => __DIR__ . '/..' . '/api-platform/core/src/Validator/Exception/ValidationException.php',
         'ApiPlatform\\Core\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/api-platform/core/src/Validator/ValidatorInterface.php',
+        'App\\Controller\\ArchivageCaissier' => __DIR__ . '/../..' . '/src/Controller/ArchivageCaissier.php',
+        'App\\Controller\\ArchivageUser' => __DIR__ . '/../..' . '/src/Controller/ArchivageUser.php',
+        'App\\Controller\\TransactionController' => __DIR__ . '/../..' . '/src/Controller/TransactionController.php',
         'App\\DataFixtures\\AppFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/AppFixtures.php',
+        'App\\DataFixtures\\CompteFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/CompteFixtures.php',
         'App\\DataFixtures\\UserFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/UserFixtures.php',
+        'App\\DataPersister\\CompteDataPersister' => __DIR__ . '/../..' . '/src/DataPersister/CompteDataPersister.php',
+        'App\\Entity\\AdminAgent' => __DIR__ . '/../..' . '/src/Entity/AdminAgent.php',
+        'App\\Entity\\AdminSysteme' => __DIR__ . '/../..' . '/src/Entity/AdminSysteme.php',
+        'App\\Entity\\Agence' => __DIR__ . '/../..' . '/src/Entity/Agence.php',
+        'App\\Entity\\Caissier' => __DIR__ . '/../..' . '/src/Entity/Caissier.php',
+        'App\\Entity\\Client' => __DIR__ . '/../..' . '/src/Entity/Client.php',
+        'App\\Entity\\Commissions' => __DIR__ . '/../..' . '/src/Entity/Commissions.php',
+        'App\\Entity\\Compte' => __DIR__ . '/../..' . '/src/Entity/Compte.php',
+        'App\\Entity\\Depot' => __DIR__ . '/../..' . '/src/Entity/Depot.php',
         'App\\Entity\\Profil' => __DIR__ . '/../..' . '/src/Entity/Profil.php',
+        'App\\Entity\\Retrait' => __DIR__ . '/../..' . '/src/Entity/Retrait.php',
+        'App\\Entity\\TabFrais' => __DIR__ . '/../..' . '/src/Entity/TabFrais.php',
+        'App\\Entity\\Transaction' => __DIR__ . '/../..' . '/src/Entity/Transaction.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Entity\\UserAgence' => __DIR__ . '/../..' . '/src/Entity/UserAgence.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\AdminAgentRepository' => __DIR__ . '/../..' . '/src/Repository/AdminAgentRepository.php',
+        'App\\Repository\\AdminSystemeRepository' => __DIR__ . '/../..' . '/src/Repository/AdminSystemeRepository.php',
+        'App\\Repository\\AgenceRepository' => __DIR__ . '/../..' . '/src/Repository/AgenceRepository.php',
+        'App\\Repository\\CaissierRepository' => __DIR__ . '/../..' . '/src/Repository/CaissierRepository.php',
+        'App\\Repository\\ClientRepository' => __DIR__ . '/../..' . '/src/Repository/ClientRepository.php',
+        'App\\Repository\\CompteRepository' => __DIR__ . '/../..' . '/src/Repository/CompteRepository.php',
+        'App\\Repository\\DepotRepository' => __DIR__ . '/../..' . '/src/Repository/DepotRepository.php',
         'App\\Repository\\ProfilRepository' => __DIR__ . '/../..' . '/src/Repository/ProfilRepository.php',
+        'App\\Repository\\RetraitRepository' => __DIR__ . '/../..' . '/src/Repository/RetraitRepository.php',
+        'App\\Repository\\TabFraisRepository' => __DIR__ . '/../..' . '/src/Repository/TabFraisRepository.php',
+        'App\\Repository\\TransactionRepository' => __DIR__ . '/../..' . '/src/Repository/TransactionRepository.php',
+        'App\\Repository\\UserAgenceRepository' => __DIR__ . '/../..' . '/src/Repository/UserAgenceRepository.php',
         'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
+        'App\\services\\calculFrais' => __DIR__ . '/../..' . '/src/services/calculFrais.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Doctrine\\Bundle\\DoctrineBundle\\Command\\CreateDatabaseDoctrineCommand' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/Command/CreateDatabaseDoctrineCommand.php',
@@ -5410,6 +5443,7 @@ class ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInit6aaa880264cfeaefc6e5c203dbdc6c49::$classMap;
 
         }, null, ClassLoader::class);

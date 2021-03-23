@@ -4,13 +4,22 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * @ApiResource(
+ * routePrefix="/admin",
+ * attributes={"security"="is_granted('ROLE_AdminSystem')"},
+ * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
- * @ApiResource()
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="user_type", type="string")
+ * @ORM\DiscriminatorMap({"caissier"="Caissier","user"="User", "adminsysteme"="AdminSysteme", "adminagent"="AdminAgent" , "useragence"="UserAgence"})
  */
 class User implements UserInterface
 {
@@ -18,61 +27,99 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({ "read:user"})
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $username;
+    protected $username;
 
-    private $roles = [];
+    protected $roles = [];
 
     /**
      * @var string
      * @ORM\Column(type="string")
      */
-    private $password;
+    protected $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({ "read:user"})
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({ "read:user"})
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({ "read:user"})
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="blob", nullable=true)
+     * @Groups({ "read:user"})
      */
-    private $avatar;
+    protected $avatar;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({ "read:user"})
      */
-    private $tel;
+    protected $tel;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({ "read:user"})
      */
-    private $cni;
+    protected $cni;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $archived;
+    protected $archived;
 
     /**
      * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
+     * @Groups({ "read:user"})
      */
-    private $profil;
+    protected $profil;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Compte::class, mappedBy="user")
+     * @Groups({ "read:user"})
+     */
+    protected $compte;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="userDepot")
+     */
+    private $transactionDepot;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="userRetrait")
+     */
+    private $transactionRetrait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Agence::class, inversedBy="users")
+     */
+    private $agence;
+
+
+
+    public function __construct()
+    {
+        $this->compte = new ArrayCollection();
+        $this->transactionDepot = new ArrayCollection();
+        $this->transactionRetrait = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -245,4 +292,108 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Compte[]
+     */
+    public function getCompte(): Collection
+    {
+        return $this->compte;
+    }
+
+    public function addCompte(Compte $compte): self
+    {
+        if (!$this->compte->contains($compte)) {
+            $this->compte[] = $compte;
+            $compte->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompte(Compte $compte): self
+    {
+        if ($this->compte->removeElement($compte)) {
+            // set the owning side to null (unless already changed)
+            if ($compte->getUser() === $this) {
+                $compte->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Transaction[]
+     */
+    public function getTransactionDepot(): Collection
+    {
+        return $this->transactionDepot;
+    }
+
+    public function addTransactionDepot(Transaction $transactionDepot): self
+    {
+        if (!$this->transactionDepot->contains($transactionDepot)) {
+            $this->transactionDepot[] = $transactionDepot;
+            $transactionDepot->setUserDepot($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTransactionDepot(Transaction $transactionDepot): self
+    {
+        if ($this->transactionDepot->removeElement($transactionDepot)) {
+            // set the owning side to null (unless already changed)
+            if ($transactionDepot->getUserDepot() === $this) {
+                $transactionDepot->setUserDepot(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Transaction[]
+     */
+    public function getTransactionRetrait(): Collection
+    {
+        return $this->transactionRetrait;
+    }
+
+    public function addTransactionRetrait(Transaction $transactionRetrait): self
+    {
+        if (!$this->transactionRetrait->contains($transactionRetrait)) {
+            $this->transactionRetrait[] = $transactionRetrait;
+            $transactionRetrait->setUserRetrait($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTransactionRetrait(Transaction $transactionRetrait): self
+    {
+        if ($this->transactionRetrait->removeElement($transactionRetrait)) {
+            // set the owning side to null (unless already changed)
+            if ($transactionRetrait->getUserRetrait() === $this) {
+                $transactionRetrait->setUserRetrait(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAgence(): ?Agence
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agence $agence): self
+    {
+        $this->agence = $agence;
+
+        return $this;
+    }
+
+
 }

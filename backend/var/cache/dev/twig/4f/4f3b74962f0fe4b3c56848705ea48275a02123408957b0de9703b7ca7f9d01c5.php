@@ -378,6 +378,6 @@ class __TwigTemplate_da0013111af66f2a97b75f44d9265170669f307f0f6a112407c4d985144
 
 </body>
 </html>
-", "@ApiPlatform/SwaggerUi/index.html.twig", "/home/vieva/AppMobile/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
+", "@ApiPlatform/SwaggerUi/index.html.twig", "/home/vieva/AppMobile/backend/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
     }
 }

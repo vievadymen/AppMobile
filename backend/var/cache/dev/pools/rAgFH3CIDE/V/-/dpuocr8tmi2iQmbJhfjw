@@ -1,0 +1,3 @@
+<?php //route_name_e9cdd809514fa8e3de38ea3ed4c4d39b
+
+return [PHP_INT_MAX, 'api_tab_frais_get_collection'];

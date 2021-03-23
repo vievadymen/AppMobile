@@ -161,6 +161,6 @@ class __TwigTemplate_f165cb8991c1f07c9b12c1867be1cb18310372695092f6dc72eaf5e7e90
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/home/vieva/AppMobile/templates/base.html.twig");
+", "base.html.twig", "/home/vieva/AppMobile/backend/templates/base.html.twig");
     }
 }

@@ -1,0 +1,49 @@
+<?php //%255BApp%255CEntity%255CUser%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+        clone ($p['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        clone ($p['Doctrine\\ORM\\Mapping\\InheritanceType'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\InheritanceType')),
+        clone ($p['Doctrine\\ORM\\Mapping\\DiscriminatorColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\DiscriminatorColumn')),
+        clone ($p['Doctrine\\ORM\\Mapping\\DiscriminatorMap'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\DiscriminatorMap')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'attributes' => [
+                [
+                    'security' => 'is_granted(\'ROLE_AdminSystem\')',
+                    'route_prefix' => '/admin',
+                ],
+            ],
+            'repositoryClass' => [
+                1 => 'App\\Repository\\UserRepository',
+            ],
+            'value' => [
+                2 => 'SINGLE_TABLE',
+                4 => [
+                    'caissier' => 'Caissier',
+                    'user' => 'User',
+                    'adminsysteme' => 'AdminSysteme',
+                    'adminagent' => 'AdminAgent',
+                    'useragence' => 'UserAgence',
+                ],
+            ],
+            'name' => [
+                3 => 'user_type',
+            ],
+            'type' => [
+                3 => 'string',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+        $o[3],
+        $o[4],
+    ],
+    []
+); }];

@@ -95,4 +95,5 @@ return array(
     'App\\Tests\\' => array($baseDir . '/tests'),
     'App\\' => array($baseDir . '/src'),
     'ApiPlatform\\Core\\' => array($vendorDir . '/api-platform/core/src'),
+    '' => array($baseDir . '/src'),
 );

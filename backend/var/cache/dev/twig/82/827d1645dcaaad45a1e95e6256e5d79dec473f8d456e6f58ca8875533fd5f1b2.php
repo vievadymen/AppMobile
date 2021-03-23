@@ -1134,6 +1134,6 @@ class __TwigTemplate_37909b09b232b27c96d1f399d9611f205d0e28d02efb02c7eccc7a9de9d
 
 </body>
 </html>
-", "@ApiPlatform/GraphQlPlayground/index.html.twig", "/home/vieva/AppMobile/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/GraphQlPlayground/index.html.twig");
+", "@ApiPlatform/GraphQlPlayground/index.html.twig", "/home/vieva/AppMobile/backend/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/GraphQlPlayground/index.html.twig");
     }
 }

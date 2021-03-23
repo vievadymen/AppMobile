@@ -8,6 +8,7 @@ use App\Entity\Profil;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Entity\Caissier;
 
 class UserFixtures extends Fixture
 {
@@ -25,6 +26,7 @@ class UserFixtures extends Fixture
                 $profil->setLibelle($libelle);
                 $manager->persist($profil);
                 $manager->flush();
+                
                 $user = new User();
                 $user->setProfil($profil);
                 $user->setPrenom($faker->firstname);
@@ -41,7 +43,7 @@ class UserFixtures extends Fixture
     
                 $manager->persist($user);
             }
-    
+        
             $manager->flush();
     }
 }

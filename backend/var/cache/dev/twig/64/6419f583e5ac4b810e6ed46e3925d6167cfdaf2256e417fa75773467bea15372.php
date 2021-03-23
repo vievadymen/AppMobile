@@ -133,6 +133,6 @@ class __TwigTemplate_bf834a59b5ab2e40ebc57a8e27d0e2a5a6ecf2ed84938993ebf5ca76374
 
 </body>
 </html>
-", "@ApiPlatform/Graphiql/index.html.twig", "/home/vieva/AppMobile/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
+", "@ApiPlatform/Graphiql/index.html.twig", "/home/vieva/AppMobile/backend/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
     }
 }
